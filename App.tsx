@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { TechcellProvider, RootTabs } from '@components/index';
+import { Quicksand_400Regular } from '@expo-google-fonts/quicksand';
+import * as Font from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import Toast from 'react-native-toast-message';
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState<boolean>(false);
+
+  useEffect(() => {
+    const prepareApp = async () => {
+      try {
+        await SplashScreen.preventAutoHideAsync();
+        await Font.loadAsync({ Quicksand_400Regular });
+      } catch (error) {
+        throw error;
+      } finally {
+        setAppIsReady(true);
+      }
+    };
+    prepareApp();
+  }, []);
+
+  if (!appIsReady) {
+    return null;
+  } else {
+    SplashScreen.hideAsync();
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <TechcellProvider>
+        <RootTabs />
+      </TechcellProvider>
+      <Toast />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
