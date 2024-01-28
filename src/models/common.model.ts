@@ -1,3 +1,5 @@
+import { TNumberOrNull } from '@type/common.type';
+
 export class CommonImage {
   publicId: string;
   url: string;
@@ -28,5 +30,12 @@ export class PagingResponse<T = unknown> {
   data: T[] = [];
 }
 
-export type TStringOrNull = string | null;
-export type TNumberOrNull = number | null;
+export class ApiReturn<T = unknown> {
+  success: boolean;
+  data?: T;
+
+  constructor(success: boolean, data?: T) {
+    this.success = success;
+    this.data = data;
+  }
+}

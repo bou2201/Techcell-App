@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { TechcellProvider, RootTabs } from '@components/index';
-import { Quicksand_400Regular } from '@expo-google-fonts/quicksand';
+import {
+  Quicksand_400Regular,
+  Quicksand_500Medium,
+  Quicksand_600SemiBold,
+  Quicksand_700Bold,
+} from '@expo-google-fonts/quicksand';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import Toast from 'react-native-toast-message';
+import 'react-native-gesture-handler';
+import { RootRoutes } from '@components/Routes';
+import { TechcellProvider } from '@components/Provider';
+import toastConfig from '@configs/toast-message.config';
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState<boolean>(false);
@@ -12,7 +20,12 @@ export default function App() {
     const prepareApp = async () => {
       try {
         await SplashScreen.preventAutoHideAsync();
-        await Font.loadAsync({ Quicksand_400Regular });
+        await Font.loadAsync({
+          Quicksand_400Regular,
+          Quicksand_500Medium,
+          Quicksand_600SemiBold,
+          Quicksand_700Bold,
+        });
       } catch (error) {
         throw error;
       } finally {
@@ -31,9 +44,9 @@ export default function App() {
   return (
     <>
       <TechcellProvider>
-        <RootTabs />
+        <RootRoutes />
       </TechcellProvider>
-      <Toast />
+      <Toast config={toastConfig} />
     </>
   );
 }

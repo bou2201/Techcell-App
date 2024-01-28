@@ -1,2 +1,3 @@
 export * from './FormGroup/TechcellButton';
-export * from './FormGroup/TechcellText';
+
+export * from './FormFormik/TextInputCtrl';

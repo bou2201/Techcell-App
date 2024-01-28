@@ -19,5 +19,8 @@ export enum ETechcellRoutes {
   Home = 'Trang chủ',
   Login = 'Đăng nhập',
   Register = 'Đăng ký',
+  ForgotPassword = 'Quên mật khẩu',
+  Notification = 'Thông báo',
+  Cart = 'Giỏ hàng',
   Me = 'Tôi',
 }

@@ -1,4 +1,5 @@
-import { CommonImage, TStringOrNull, Timestamp } from './common.model';
+import { TStringOrNull } from '@type/common.type';
+import { CommonImage, Timestamp } from './common.model';
 
 export class CUser extends Timestamp {
   _id: TStringOrNull = null;

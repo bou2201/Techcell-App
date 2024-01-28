@@ -2,14 +2,17 @@ import { extendTheme } from 'native-base';
 
 export const customTheme = extendTheme({
   fonts: {
-    quicksand: 'Quicksand_400Regular'
+    quicksandRegular: 'Quicksand_400Regular',
+    quicksandMedium: 'Quicksand_500Medium',
+    quicksandSemiBold: 'Quicksand_600SemiBold',
+    quicksandBold: 'Quicksand_700Bold',
   },
   colors: {
     red: '#ee4949',
     redBlur: 'rgba(238, 73, 73, 0.08)',
     black: '#3b3b3b',
-    blackBlur: 'rgba(59, 59, 59, 0.08)'
-  }
+    blackBlur: 'rgba(59, 59, 59, 0.08)',
+  },
 });
 
 // 2. Get the type of the CustomTheme

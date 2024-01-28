@@ -1,8 +1,8 @@
-import { TStringOrNull } from './common.model';
+import { TStringOrNull, TStringOrUndefined } from "@type/common.type";
 
 export class CLogin {
-  emailOrUsername: TStringOrNull = null;
-  password: TStringOrNull = null;
+  emailOrUsername: TStringOrUndefined = undefined;
+  password: TStringOrUndefined = undefined;
 }
 
 export class CRegister {
